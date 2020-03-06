@@ -20,7 +20,7 @@ get '/' do
 end	
 
 get '/visit' do
-	
+
 	erb :visit
 end
 
@@ -32,6 +32,14 @@ post '/visit' do
 	@barber = params[:barber]
 	@color = params[:color]
 
+	c = Client.new 
+	c.name = @username
+	c.phone = @phone
+	c.timestamps = @datetime
+	c.barber = @barber
+	c.color = @color
+	c.save 
+	
 	erb "<h2>Спасибо, вы записались!</h2>"
 
 end
