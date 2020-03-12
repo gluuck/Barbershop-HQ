@@ -50,5 +50,6 @@ get '/barber/:id' do
 end	
 
 get '/showusers' do
+	@clients = Client.order ('created_at desc')
 	erb :showusers
 end
